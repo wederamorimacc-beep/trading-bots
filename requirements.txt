@@ -1,0 +1,22 @@
+# Core
+ccxt==2.6.94
+python-dotenv==0.21.1
+pandas==1.5.3
+numpy==1.24.3
+requests==2.28.2
+
+# Telegram
+python-telegram-bot==20.4
+
+# Forex/MetaTrader - usando versão disponível mais recente
+metaapi-cloud-sdk==21.5.2
+
+# Utilities
+schedule==1.2.0
+python-dateutil==2.8.2
+pytz==2022.7.1
+
+# Development
+pytest==7.2.0
+black==22.12.0
+flake8==6.0.0
