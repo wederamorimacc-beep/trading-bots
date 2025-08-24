@@ -1,0 +1,77 @@
+Curso: Como criar seu 1º Robô de Cripto
+
+1.Como será o funcionamento do Robô de cripto.
+
+2.Configurar sua Conta Binance e criar o API na Binance:
+	Conta / Gerenciamento de API
+	nove da chave: robo_cripto_varos
+=> API Key:
+ZNJU0P31hDIwmMgpxrCw8MKu7AakZC6p0iXHrB0Na8VcpsJ6lKscuuCD3uEZA3h6
+
+=> Chave Secreta:
+O37vOD7wiMhcJADCrXR7v1cggbsxQVtfVesgGhs0ePpkhWtPmuT4mxdblo2iSCr3
+(Autentique)
+
+=> Desmarque a Controles de Segurança Padrão
+
+=> Restrições de API marque:
+	>Ativar Trading Spot e de Margem
+(Autentique)
+
+3.Como instalar o Python e o Anaconda
+
+4.1 Como criar um Robô de Cripto com a Binance usando Python
+1.Usar o VSCode:
+C:\Users\cti-wederg\Documents\02 - Formação e Cursos de atualização\05.Programação\Python\VSCODE
+Code.exe
+
+No VSCode, na parte "EXPLORER" abra a pasta 01_Robo_Cripto_Varos, que deve estar em branco.
+EXPLORER / Open Folder... localize a pasta citada acima.
+
+Na parte EXTENSIONS digite Python, e escolha a primeira opção (Pytoh language support... da Microsoft)
+Instale (Install)
+
+De volta ao EXPLORER, dentro da pasta 01_Robo_Cripto_Varos, crie um arquivo ".env"
+New File: .env (note que aparece o icone de uma engrenagem.
+É nele que gardaremos nossas senhas da Binance, portanto insira:
+KEY_BINANCE = "ZNJU0P31hDIwmMgpxrCw8MKu7AakZC6p0iXHrB0Na8VcpsJ6lKscuuCD3uEZA3h6"
+SECRET_BINANCE = "O37vOD7wiMhcJADCrXR7v1cggbsxQVtfVesgGhs0ePpkhWtPmuT4mxdblo2iSCr3"
+
+Crie um novo arquivo (new file), com nome de robo_cripto.py
+Note que será necessário informar o interpretador, veja no canto inferior direito.
+ No caso o cursoindica apontar para o Anaconda
+ No entanto, usei o winpython64:
+	D:\winpython64-3.12.9.0slim\WPy64-31290\python\python.exe
+
+Para testar: digite na primeira linha: print ("Hello World")
+Avalie os erros e corrija.
+
+Agora teremos que importar alguns pacotes, então dentro do código faremos:
+Linha 1: apagamos o Hello World pois o teste já foi feito, então:
+1.importe o "pandas", pois é o principal pacote de análise de dados,
+2.importe o "os" pois ele irá trabalhar com variaveis em ambiente (criamos o arquivo ".env")
+3.importe o "time", pois teremos que congelar o robô em algumas sistuação
+
+Instale o pacote da Binance, pois não temos ele não está instalado.
+Então no menu pesquisar do windows digite: "anaconda prompt" ao abrir a tela preta digite "pip install python-binance"
+=> temos o winpython, então vamos localizar o WinPython Command Prompt, e digite "pip install python-binance" veja como fica:
+D:\winpython64-3.12.9.0slim\WPy64-31290\notebooks>pip install python-binance
+Aguarde a instalação
+
+Agora importaremos alguns dados do pacote da binance, e não ele todo, etão teremos:
+4.from binance.client import Client
+5.from binance.enums import *
+
+Agora vamos trazer as informações de segurança:
+7.api_key = os.getenv("KEY_BINANCE")
+8.secret_key = os getenv("SECRET_BINANCE")
+
+As arguentações necessárias a operar na Binance pode ser encontrada na própria Binance:
+No google procure binance api documentation python (está em inglês), assim como o pandas documentation
+
+Buscamos as informações das contas, primeiro logamos:
+10.cliente_binance = Cliente(api_key, secret_key)
+
+Informações da conta pegamos com get (para garantir que as informações acima estarão assessiveis, salve o arquivo ".env", e por garantia, reinicie o VSCode. Agora vamos
+12.conta=cliente_binance.get_account
+
